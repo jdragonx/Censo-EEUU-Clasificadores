@@ -2,6 +2,24 @@ import numpy as np
 import pickle
 from flask import Flask,request,json
 
+scalerD = pickle.load(open( 'scalerD.p', 'rb' ))
+scalerDp = pickle.load(open( 'scalerDp.p', 'rb' ))
+scalerND = pickle.load(open( 'scalerND.p', 'rb' ))
+scalerNDp = pickle.load(open( 'scalerNDp.p', 'rb' ))
+pca = pickle.load(open( 'pca.p', 'rb' ))
+modeloKNN = pickle.load(open('knn.p','rb'))
+modeloKNNp = pickle.load(open('knnp.p','rb'))
+modeloNN = pickle.load(open('model.p','rb'))
+modeloNNp = pickle.load(open('modelp.p','rb'))
+modeloSVMr = pickle.load(open('modeloSVMr.p','rb'))
+modeloSVMrp = pickle.load(open('modeloSVMrp.p','rb'))
+modeloSVMl = pickle.load(open('modeloSVMl.p','rb'))
+modeloSVMlp = pickle.load(open('modeloSVMlp.p','rb'))
+modeloSVMp = pickle.load(open('modeloSVMp.p','rb'))
+modeloSVMpp = pickle.load(open('modeloSVMpp.p','rb'))
+modeloSVMs = pickle.load(open('modeloSVMs.p','rb'))
+modeloSVMsp = pickle.load(open('modeloSVMsp.p','rb'))
+
 app = Flask(__name__)
 
 @app.route('/',methods=['POST','GET'])
@@ -139,21 +157,4 @@ def jsonGen(predict):
     return response
 
 if __name__ == '__main__':
-    scalerD = pickle.load(open( 'scalerD.p', 'rb' ))
-    scalerDp = pickle.load(open( 'scalerDp.p', 'rb' ))
-    scalerND = pickle.load(open( 'scalerND.p', 'rb' ))
-    scalerNDp = pickle.load(open( 'scalerNDp.p', 'rb' ))
-    pca = pickle.load(open( 'pca.p', 'rb' ))
-    modeloKNN = pickle.load(open('knn.p','rb'))
-    modeloKNNp = pickle.load(open('knnp.p','rb'))
-    modeloNN = pickle.load(open('model.p','rb'))
-    modeloNNp = pickle.load(open('modelp.p','rb'))
-    modeloSVMr = pickle.load(open('modeloSVMr.p','rb'))
-    modeloSVMrp = pickle.load(open('modeloSVMrp.p','rb'))
-    modeloSVMl = pickle.load(open('modeloSVMl.p','rb'))
-    modeloSVMlp = pickle.load(open('modeloSVMlp.p','rb'))
-    modeloSVMp = pickle.load(open('modeloSVMp.p','rb'))
-    modeloSVMpp = pickle.load(open('modeloSVMpp.p','rb'))
-    modeloSVMs = pickle.load(open('modeloSVMs.p','rb'))
-    modeloSVMsp = pickle.load(open('modeloSVMsp.p','rb'))
     app.run()
