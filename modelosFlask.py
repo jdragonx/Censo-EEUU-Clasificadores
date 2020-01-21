@@ -7,18 +7,19 @@ scalerDp = pickle.load(open( 'scalerDp.p', 'rb' ))
 scalerND = pickle.load(open( 'scalerND.p', 'rb' ))
 scalerNDp = pickle.load(open( 'scalerNDp.p', 'rb' ))
 pca = pickle.load(open( 'pca.p', 'rb' ))
-modeloKNN = pickle.load(open('knn.p','rb'))
-modeloKNNp = pickle.load(open('knnp.p','rb'))
-modeloNN = pickle.load(open('model.p','rb'))
-modeloNNp = pickle.load(open('modelp.p','rb'))
-modeloSVMr = pickle.load(open('modeloSVMr.p','rb'))
-modeloSVMrp = pickle.load(open('modeloSVMrp.p','rb'))
-modeloSVMl = pickle.load(open('modeloSVMl.p','rb'))
-modeloSVMlp = pickle.load(open('modeloSVMlp.p','rb'))
-modeloSVMp = pickle.load(open('modeloSVMp.p','rb'))
-modeloSVMpp = pickle.load(open('modeloSVMpp.p','rb'))
-modeloSVMs = pickle.load(open('modeloSVMs.p','rb'))
-modeloSVMsp = pickle.load(open('modeloSVMsp.p','rb'))
+
+MmodeloKNN = pickle.load(open('knn.p','rb'))
+MmodeloKNNp = pickle.load(open('knnp.p','rb'))
+MmodeloNN = pickle.load(open('model.p','rb'))
+MmodeloNNp = pickle.load(open('modelp.p','rb'))
+MmodeloSVMr = pickle.load(open('modeloSVMr.p','rb'))
+MmodeloSVMrp = pickle.load(open('modeloSVMrp.p','rb'))
+MmodeloSVMl = pickle.load(open('modeloSVMl.p','rb'))
+MmodeloSVMlp = pickle.load(open('modeloSVMlp.p','rb'))
+MmodeloSVMp = pickle.load(open('modeloSVMp.p','rb'))
+MmodeloSVMpp = pickle.load(open('modeloSVMpp.p','rb'))
+MmodeloSVMs = pickle.load(open('modeloSVMs.p','rb'))
+MmodeloSVMsp = pickle.load(open('modeloSVMsp.p','rb'))
 
 app = Flask(__name__)
 
@@ -31,7 +32,7 @@ def modeloKNN():
     content = request.get_json()
     X = getX(content,10)
     X = scalerND.transform(X)
-    predict=modeloKNN.predict(X)
+    predict=MmodeloKNN.predict(X)
     response = jsonGen(predict[0])
     return response
 
@@ -41,7 +42,7 @@ def modeloKNNp():
     X = getX(content,10)
     X = pca.transform(X)
     X = scalerNDp.transform(X)
-    predict=modeloKNNp.predict(X)
+    predict=MmodeloKNNp.predict(X)
     response = jsonGen(predict[0])
     return response
 
@@ -50,7 +51,7 @@ def modeloNN():
     content = request.get_json()
     X = getX(content,10)
     X = scalerD.transform(X)
-    predict=modeloNN.predict_classes(X)
+    predict=MmodeloNN.predict_classes(X)
     response = jsonGen(predict[0])
     return response
 
@@ -60,7 +61,7 @@ def modeloNNp():
     X = getX(content,10)
     X = pca.transform(X)
     X = scalerDp.transform(X)
-    predict=modeloNNp.predict_classes(X)
+    predict=MmodeloNNp.predict_classes(X)
     response = jsonGen(predict[0])
     return response
 
@@ -69,7 +70,7 @@ def modeloSVMr():
     content = request.get_json()
     X = getX(content,10)
     X = scalerND.transform(X)
-    predict=modeloSVMr.predict(X)
+    predict=MmodeloSVMr.predict(X)
     response = jsonGen(predict[0])
     return response
 
@@ -79,7 +80,7 @@ def modeloSVMrp():
     X = getX(content,10)
     X = pca.transform(X)
     X = scalerNDp.transform(X)
-    predict=modeloSVMrp.predict(X)
+    predict=MmodeloSVMrp.predict(X)
     response = jsonGen(predict[0])
     return response
 
@@ -88,7 +89,7 @@ def modeloSVMl():
     content = request.get_json()
     X = getX(content,10)
     X = scalerND.transform(X)
-    predict=modeloSVMl.predict(X)
+    predict=MmodeloSVMl.predict(X)
     response = jsonGen(predict[0])
     return response
 
@@ -98,7 +99,7 @@ def modeloSVMlp():
     X = getX(content,10)
     X = pca.transform(X)
     X = scalerNDp.transform(X)
-    predict=modeloSVMlp.predict(X)
+    predict=MmodeloSVMlp.predict(X)
     response = jsonGen(predict[0])
     return response
 
@@ -107,7 +108,7 @@ def modeloSVMp():
     content = request.get_json()
     X = getX(content,10)
     X = scalerND.transform(X)
-    predict=modeloSVMp.predict(X)
+    predict=MmodeloSVMp.predict(X)
     response = jsonGen(predict[0])
     return response
 
@@ -117,7 +118,7 @@ def modeloSVMpp():
     X = getX(content,10)
     X = pca.transform(X)
     X = scalerNDp.transform(X)
-    predict=modeloSVMpp.predict(X)
+    predict=MmodeloSVMpp.predict(X)
     response = jsonGen(predict[0])
     return response
 
@@ -126,7 +127,7 @@ def modeloSVMs():
     content = request.get_json()
     X = getX(content,10)
     X = scalerND.transform(X)
-    predict=modeloSVMs.predict(X)
+    predict=MmodeloSVMs.predict(X)
     response = jsonGen(predict[0])
     return response
 
@@ -136,7 +137,7 @@ def modeloSVMsp():
     X = getX(content,10)
     X = pca.transform(X)
     X = scalerNDp.transform(X)
-    predict=modeloSVMsp.predict(X)
+    predict=MmodeloSVMsp.predict(X)
     response = jsonGen(predict[0])
     return response
 
